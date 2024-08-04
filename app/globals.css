@@ -24,7 +24,12 @@ body {
 }
 .task-title--done {
   text-decoration: line-through;
-  color: #cdcdcd;
+  color: #3b3838;
+}
+.list-group-item--done {
+  border-width: 2px;
+  border-color: #42be2a;
+  opacity: 0.5;
 }
 .task-item__buttons {
   display: flex;
@@ -52,7 +57,7 @@ body {
   font-size: 32px;
 }
 
-.btn-action {
+#btn-action {
   background-color: #e0e5ea;
   padding: 8px 10px;
   cursor: pointer;
@@ -66,12 +71,12 @@ body {
   align-items: center;
 }
 
-.btn-action:hover {
+#btn-action:hover {
   background-color: #e0e5ea;
   opacity: 1;
 }
 
-.btn-action img {
+#btn-action img {
   pointer-events: none;
 }
 
@@ -81,4 +86,13 @@ body {
 
 .float-right {
   float: right;
+}
+
+#list-item {
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  padding: 8px;
+  margin-top: 8px;
+  border-radius: 4px;
 }
