@@ -4,7 +4,7 @@ export default function Header() {
   return (
     <div className="container">
       <div className="text-4xl text-green-700">myday24</div>
-      <div className="h4 mb-5">список дел на сегодня</div>
+      <div className="h4 mb-5">список дел </div>
 
       {/* List of tasks */}
       <div className="mb-4">
