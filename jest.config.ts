@@ -15,7 +15,7 @@ const config: Config = {
   modulePathIgnorePatterns: ["<rootDir>/tests/"],
   moduleNameMapper: {
     // ...
-    "^@/components/(.*)$": "<rootDir>/components/$1",
+    "^@/(.*)$": "<rootDir>/tests/$1",
   },
 };
 
