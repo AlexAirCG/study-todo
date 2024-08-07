@@ -1,8 +1,10 @@
+import Image from "next/image";
+
 export default function Header() {
   return (
     <div className="container">
       <div className="text-4xl text-green-700">myday24</div>
-      <div className="h4 mb-5">список дел на сегодня</div>
+      <div className="h4 mb-5">список дел </div>
 
       {/* List of tasks */}
       <div className="mb-4">
@@ -11,7 +13,13 @@ export default function Header() {
             id="emptyList"
             className="list-group-item empty-list bg-white rounded"
           >
-            <img src="leaf.svg" alt="Empty" width="48" className="mt-3" />
+            <Image
+              src="leaf.svg"
+              alt="Empty"
+              width="48"
+              height="48"
+              className="mt-3"
+            />
             <div className="empty-list__title ">Список дел пуст</div>
           </li>
         </ul>
