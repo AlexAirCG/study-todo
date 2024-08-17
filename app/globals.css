@@ -17,7 +17,9 @@ body {
 }
 .task-title {
   font-weight: 400;
-  padding-top: 5px;
+  padding: 5px;
+  margin: 0 10px 0 0;
+  width: 100%;
 }
 .gray {
   color: #bdbdbd;
@@ -25,6 +27,9 @@ body {
 .task-title--done {
   text-decoration: line-through;
   color: #3b3838;
+  border-width: 2px;
+  border-color: #42be2a;
+  opacity: 0.5;
 }
 .list-group-item--done {
   border-width: 2px;
@@ -88,7 +93,7 @@ body {
   float: right;
 }
 
-#list-item {
+.list-group-item {
   display: flex;
   justify-content: space-between;
   background-color: white;
