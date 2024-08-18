@@ -8,34 +8,8 @@ let tasks = [];
 
 if (localStorage.getItem("tasks")) {
   tasks = JSON.parse(localStorage.getItem("tasks"));
+  tasks.forEach((task) => renderTask(task));
 }
-
-tasks.forEach(function (task) {
-  // Формируем CSS класс
-  const cssCalss = task.done ? "task-title task-title--done" : "task-title";
-
-  // Формируем разметку для новой задачи
-  const taskHTML = `          
-        <li id="${task.id}" class="list-group-item">
-            <span class="${cssCalss}">${task.text}</span>
-            <div class="task-item__buttons bg-white">
-              <button id="btn-action" type="button" data-action="done">
-                <img src="tick.svg" alt="Done" width="18" height="18" />
-              </button>
-              <button
-                type="button"
-                data-action="delete"
-                id="btn-action"
-              >
-                <img src="cross.svg" alt="Done" width="18" height="18" />
-              </button>
-            </div>
-          </li>
-          `;
-
-  // Добавить задачу на страницу
-  tasksList.insertAdjacentHTML("beforeend", taskHTML);
-});
 
 checkEmptyList();
 
@@ -65,32 +39,8 @@ function addTask(event) {
   // Сохраняем список задач в хранилище браузера localStorage
   saveToLocalStorage();
 
-  // Формируем CSS класс
-  const cssCalss = newTask.done ? "task-title task-title--done" : "task-title";
-
-  // Формируем разметку для новой задачи
-  const taskHTML = `  
-           
-        <li id="${newTask.id}" class="list-group-item">
-            <div class="${cssCalss}">${newTask.text}</div>
-            <div class="task-item__buttons bg-white">
-              <button id="btn-action" type="button" data-action="done">
-                <img src="tick.svg" alt="Done" width="18" height="18" />
-              </button>
-              <button
-                type="button"
-                data-action="delete"
-                id="btn-action"
-              >
-                <img src="cross.svg" alt="Done" width="18" height="18" />
-              </button>
-            </div>
-          </li>
-    
-    `;
-
-  // Добавить задачу на страницу
-  tasksList.insertAdjacentHTML("beforeend", taskHTML);
+  // Рендерим задачу на страницу
+  renderTask(newTask);
 
   // Очищаем поле ввода и возвращаем на него фокус
   taskInput.value = "";
@@ -170,4 +120,31 @@ function checkEmptyList() {
 
 function saveToLocalStorage() {
   localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+
+function renderTask(task) {
+  // Формируем CSS класс
+  const cssCalss = task.done ? "task-title task-title--done" : "task-title";
+
+  // Формируем разметку для новой задачи
+  const taskHTML = `          
+        <li id="${task.id}" class="list-group-item">
+            <span class="${cssCalss}">${task.text}</span>
+            <div class="task-item__buttons bg-white">
+              <button id="btn-action" type="button" data-action="done">
+                <img src="tick.svg" alt="Done" width="18" height="18" />
+              </button>
+              <button
+                type="button"
+                data-action="delete"
+                id="btn-action"
+              >
+                <img src="cross.svg" alt="Done" width="18" height="18" />
+              </button>
+            </div>
+          </li>
+          `;
+
+  // Добавить задачу на страницу
+  tasksList.insertAdjacentHTML("beforeend", taskHTML);
 }
